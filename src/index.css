@@ -1,0 +1,89 @@
+main {
+   min-height: 80vh;
+}
+
+.screen-bg {
+   height: 100vh;
+   width: 100vw;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: top center;
+   margin-bottom: 210vh;
+}
+
+.home-title {
+   margin-left: 100px;
+   margin-top: 200px;
+   font-size: 65px;
+}
+
+.home-quote {
+   margin-left: 100px;
+   margin-top: -5px;
+}
+
+.adopt-link {
+   margin-left: 100px;
+}
+
+.help-option {
+   margin-top: 63vh;
+   margin-bottom: 8vh;
+   text-align: center;
+}
+
+.rescued-title {
+   margin-top: 23vh;
+   margin-bottom: 8vh;
+}
+
+.rescued-animals {
+   margin-bottom: 27vh;
+}
+
+.contact {
+   margin-bottom: 10vh;
+}
+
+.form-title {
+   margin-top: 10vh;
+   text-align: center;
+}
+
+.form-quote {
+   margin-bottom: 6vh;
+   text-align: center;
+}
+
+.about-title {
+   text-align: center;
+   margin-top: -20vh;
+   font-size: 45px;
+   margin-bottom: 20vh;
+   color: azure;
+}
+
+.mission {
+   margin-top: 15vh;
+}
+
+.vision {
+   margin-top: 8vh;
+}
+
+.goal {
+   margin-top: 13vh;
+   margin-bottom: 10vh;
+}
+
+p {
+   font-size: 20px;
+}
+
+li {
+   font-size: 17px;
+}
+
+.email-sent {
+   margin-top: 20vh;
+}
