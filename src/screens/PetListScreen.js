@@ -5,37 +5,30 @@ import Info from '../components/Info'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 import { listPets, reservePet } from '../actions/petActions'
+import moment from 'moment'
 
 const PetListScreen = ({ history }) => {
    const petList = useSelector((state) => state.petList)
    const { error, pets, loading } = petList
 
    const userLogin = useSelector((state) => state.userLogin)
-   const {
-      userInfo: { userId },
-   } = userLogin
+
+   const { userInfo } = userLogin
 
    const dispatch = useDispatch()
-
    const date = new Date()
 
-   const year = date.getFullYear()
-   const month = date.getMonth()
-   const day = date.getDay()
-   const hrs = date.getHours()
-   const min = date.getMinutes()
-   const sec = date.getSeconds()
-   const timeStamp = new Date('YYYY-mm-dd')
-   console.log(timeStamp)
+   console.log(moment(date).format())
 
    useEffect(() => {
       dispatch(listPets())
    }, [dispatch, error])
 
    const adoptHandler = (petId) => {
-      if (!userId) {
+      if (!userInfo || !userLogin) {
          history.push('/login')
       } else {
+         const { userId } = userInfo
          if (window.confirm('Do you want to adopt him?')) {
             dispatch(reservePet({ userId, petId }))
          }
