@@ -10,6 +10,7 @@ import {
    EMAIL_VERIFICATION_SUCCESS,
    EMAIL_VERIFICATION_FAIL,
 } from '../constants/userConstants'
+import { USER_RESERVED_PET_RESET } from '../constants/reservationConstants'
 
 export const login = (email, password) => async (dispatch) => {
    try {
@@ -54,6 +55,7 @@ export const login = (email, password) => async (dispatch) => {
 export const logout = () => async (dispatch) => {
    localStorage.removeItem('userInfo')
    dispatch({ type: USER_LOGOUT })
+   dispatch({ type: USER_RESERVED_PET_RESET })
 }
 
 export const register = (userData) => async (dispatch) => {
