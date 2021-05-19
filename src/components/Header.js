@@ -13,6 +13,7 @@ const Header = () => {
    const logoutHandler = () => {
       dispatch(logout())
    }
+
    return (
       <header>
          <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
@@ -40,10 +41,14 @@ const Header = () => {
                            <LinkContainer to='/profile'>
                               <NavDropdown.Item>Profile</NavDropdown.Item>
                            </LinkContainer>
-
-                           <NavDropdown.Item onClick={logoutHandler}>
-                              Logout
-                           </NavDropdown.Item>
+                           <LinkContainer to='/admin'>
+                              <NavDropdown.Item>Admin</NavDropdown.Item>
+                           </LinkContainer>
+                           <LinkContainer to='/'>
+                              <NavDropdown.Item onClick={logoutHandler}>
+                                 Logout
+                              </NavDropdown.Item>
+                           </LinkContainer>
                         </NavDropdown>
                      ) : (
                         <LinkContainer to='/login'>

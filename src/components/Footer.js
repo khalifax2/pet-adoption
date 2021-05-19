@@ -6,7 +6,7 @@ const Footer = () => {
       <footer>
          <Container>
             <Row>
-               <Col className='text-center py-3'>
+               <Col className='text-center py-3' style={{ marginTop: '10vh' }}>
                   Copyright &copy; Makeitlouder
                </Col>
             </Row>

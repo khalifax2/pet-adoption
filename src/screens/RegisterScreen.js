@@ -29,9 +29,9 @@ const RegisterScreen = ({ location, history }) => {
    const redirect = location.search ? location.seatch.split('=')[1] : '/'
 
    useEffect(() => {
-      // if (userInfo) {
-      //    history.push('/register')
-      // }
+      if (userInfo) {
+         history.push('/register')
+      }
    }, [history, redirect, userInfo, verificationLinkSent])
 
    const submitHandler = (e) => {

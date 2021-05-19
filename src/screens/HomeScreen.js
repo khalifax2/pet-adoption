@@ -5,7 +5,7 @@ import roundImg from '../images/roundImg.png'
 import cardImg from '../images/cardImg.png'
 import Info from '../components/Info'
 
-const HomeScreen = () => {
+const HomeScreen = ({ history }) => {
    return (
       <div
          className='screen-bg'
@@ -28,7 +28,11 @@ const HomeScreen = () => {
          </Row>
          <Row>
             <Col>
-               <Button className='adopt-link' variant='dark'>
+               <Button
+                  className='adopt-link'
+                  variant='dark'
+                  onClick={() => history.push('/pets')}
+               >
                   ADOPT NOW!
                </Button>
                <Button className='donate-link ml-2' variant='dark'>

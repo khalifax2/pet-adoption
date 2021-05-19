@@ -6,40 +6,46 @@ import {
    getUserReservedPet,
    removeUserReservedPet,
 } from '../actions/reservationActions'
+import Loader from '../components/Loader'
 import Message from '../components/Message'
 
-const ProfileScreen = () => {
+const ProfileScreen = ({ history }) => {
    const dispatch = useDispatch()
 
    const userReserved = useSelector((state) => state.userReservedPet)
-   const { pets } = userReserved
+   const { reservation, loading, error, success } = userReserved
 
    useEffect(() => {
       dispatch(getUserReservedPet())
-   }, [dispatch, pets])
+   }, [dispatch, success])
 
    const removeReservedPet = (id) => {
       dispatch(removeUserReservedPet(id))
    }
 
    const editReservedPet = (id) => {
-      console.log(id)
+      history.push(`/r/${id}/edit`)
    }
 
    return (
       <Container>
          <Row className='mt-5'>
             <Col>
-               <h2>Your Reserved Pet</h2>
-               {pets.length === 0 ? (
+               <h1>Reservation</h1>
+
+               {loading ? (
+                  <Loader />
+               ) : error ? (
+                  <Message variant='danger'>{error}</Message>
+               ) : reservation.length === 0 ? (
                   <Message>Empty Reservation.</Message>
                ) : (
                   <ListGroup className='mt-5' variant='flush'>
-                     {pets.map((pet) => (
+                     {reservation.map((pet) => (
                         <ListGroup.Item key={pet.reservationId}>
                            <Row>
                               <Col md={2}>
-                                 <Image src={pet.pet.imagePath} fluid />
+                                 <Image src={`/images/cardImg.png`} fluid />
                               </Col>
                               <Col md={2}>{pet.pet.name.toUpperCase()}</Col>
                               <Col md={2}>{pet.pet.gender}</Col>
